@@ -19,7 +19,7 @@ Future<void> openUrl(String url) async {
 }
 
 Future<void> openCv() => openUrl(
-  'https://drive.google.com/file/d/15qlRGyn42KdqdYmzDCjV_XU7fYS5Qkge/view?usp=drive_link',
+  'https://drive.google.com/file/d/1ULMiutpyRDiToPE86kmb1LG4ywojPGa_/view?usp=drive_link',
 );
 
 class Pal {
