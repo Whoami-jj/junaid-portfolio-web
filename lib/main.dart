@@ -5,18 +5,12 @@ import 'package:url_launcher/url_launcher.dart';
 
 void main() => runApp(const PortfolioApp());
 
-// ─────────────────────────────────────────────────────────────────────────────
-// PROFILE CONSTANTS
-// ─────────────────────────────────────────────────────────────────────────────
-
 class Profile {
   static const name = 'Junaid Akram';
   static const role = 'Flutter Developer';
   static const email = 'devjunaidakr@gmail.com';
   static const github = 'https://github.com/Whoami-jj';
   static const linkedin = 'https://linkedin.com/in/junaid-akram-1873a11a9/';
-  // Put your PDF at: web/cv/Junaid_Akram_CV.pdf
-  static const cvPath = 'cv/Junaid_Akram_CV.pdf';
 }
 
 Future<void> openUrl(String url) async {
@@ -24,11 +18,9 @@ Future<void> openUrl(String url) async {
   if (!ok) debugPrint('Could not launch $url');
 }
 
-Future<void> openCv() => openUrl('https://drive.google.com/file/d/15qlRGyn42KdqdYmzDCjV_XU7fYS5Qkge/view?usp=drive_link');
-
-// ─────────────────────────────────────────────────────────────────────────────
-// THEME
-// ─────────────────────────────────────────────────────────────────────────────
+Future<void> openCv() => openUrl(
+  'https://drive.google.com/file/d/15qlRGyn42KdqdYmzDCjV_XU7fYS5Qkge/view?usp=drive_link',
+);
 
 class Pal {
   final Color bg, surface, card, border, text, text2, muted, accent, accent2;
@@ -107,16 +99,19 @@ class PortfolioApp extends StatelessWidget {
   }
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// DATA
-// ─────────────────────────────────────────────────────────────────────────────
-
 class Job {
   final String role, company, period, location;
   final Color color;
   final List<String> points;
-  const Job(this.role, this.company, this.period, this.location, this.color,
-      this.points);
+
+  const Job(
+    this.role,
+    this.company,
+    this.period,
+    this.location,
+    this.color,
+    this.points,
+  );
 }
 
 class Project {
@@ -124,6 +119,7 @@ class Project {
   final List<String> tech, highlights;
   final Color color;
   final String? url, linkLabel, note;
+
   const Project({
     required this.title,
     required this.category,
@@ -141,8 +137,15 @@ class StoreApp {
   final String title, description, ios, android;
   final IconData icon;
   final Color color;
+
   const StoreApp(
-      this.title, this.description, this.icon, this.color, this.ios, this.android);
+    this.title,
+    this.description,
+    this.icon,
+    this.color,
+    this.ios,
+    this.android,
+  );
 }
 
 const _jobs = <Job>[
@@ -185,7 +188,7 @@ const _projects = <Project>[
     title: 'Inspire Uplift Marketplace & Seller Central',
     category: 'E-Commerce',
     description:
-    'Enterprise apps for marketplace and seller management with real-time analytics and automated workflows.',
+        'Enterprise apps for marketplace and seller management with real-time analytics and automated workflows.',
     tech: ['Flutter', 'Firebase', 'REST API', 'Bloc'],
     highlights: [
       'Real-time analytics dashboard',
@@ -195,14 +198,14 @@ const _projects = <Project>[
     ],
     color: Color(0xFF2563EB),
     url:
-    'https://play.google.com/store/apps/details?id=com.inspireuplift.sellercentral.iu_seller_central',
+        'https://play.google.com/store/apps/details?id=com.inspireuplift.sellercentral.iu_seller_central',
     linkLabel: 'View on Google Play',
   ),
   Project(
     title: 'Live Streaming & Social Platform',
     category: 'Live Streaming',
     description:
-    'Real-time social engagement platform with live streaming, chat, audio/video calls, and integrated payments.',
+        'Real-time social engagement platform with live streaming, chat, audio/video calls, and integrated payments.',
     tech: ['Flutter', 'WebSocket', 'Firebase', 'REST API', 'Payment Gateway'],
     highlights: [
       'Real-time chat, audio & video interactions',
@@ -217,7 +220,7 @@ const _projects = <Project>[
     title: 'Sonata Social Media App',
     category: 'Social Platform',
     description:
-    'Full-featured social platform with real-time posting, commenting, and engagement features.',
+        'Full-featured social platform with real-time posting, commenting, and engagement features.',
     tech: ['Flutter', 'Firebase Firestore', 'Auth'],
     highlights: [
       'Secure OTP authentication',
@@ -231,7 +234,7 @@ const _projects = <Project>[
     title: 'Meal Match (FYP)',
     category: 'Health & Fitness',
     description:
-    'AI-powered nutritionist app that tracks food habits and gives personalized diet recommendations.',
+        'AI-powered nutritionist app that tracks food habits and gives personalized diet recommendations.',
     tech: ['Flutter', 'AI Integration', 'Firebase'],
     highlights: [
       'AI consultation features',
@@ -246,12 +249,9 @@ const _projects = <Project>[
     title: 'PocketAI',
     category: 'AI Agent',
     description:
-    'Gemini-powered agent app that calls tools (weather, calculator) to answer questions.',
+        'Gemini-powered agent app that calls tools (weather, calculator) to answer questions.',
     tech: ['Flutter', 'Gemini API', 'Tool Calling'],
-    highlights: [
-      'LLM tool / function calling',
-      'Weather and calculator tools',
-    ],
+    highlights: ['LLM tool / function calling', 'Weather and calculator tools'],
     color: Color(0xFFDB2777),
     // url: 'https://github.com/Whoami-jj/<repo>',  // add when public
     // linkLabel: 'View on GitHub',
@@ -273,7 +273,7 @@ const _projects = <Project>[
     title: 'Sneaker Shop',
     category: 'E-Commerce',
     description:
-    'E-commerce app for sneaker fans with curated Nike and Jordan collections.',
+        'E-commerce app for sneaker fans with curated Nike and Jordan collections.',
     tech: ['Flutter', 'Stripe', 'REST API'],
     highlights: ['Modern UI/UX', 'Size selection', 'Coupon integration'],
     color: Color(0xFFD97706),
@@ -284,7 +284,7 @@ const _projects = <Project>[
     title: 'This Portfolio',
     category: 'Portfolio',
     description:
-    'Responsive Flutter web + Android portfolio with light/dark themes, released as an APK through an automated pipeline.',
+        'Responsive Flutter web + Android portfolio with light/dark themes, released as an APK through an automated pipeline.',
     tech: ['Flutter', 'GitHub Actions'],
     highlights: ['Light and dark themes', 'Tag-triggered APK releases'],
     color: Color(0xFF0B6E6B),
@@ -343,11 +343,14 @@ const _skills = <String, List<String>>{
   'Design': ['UI/UX', 'Responsive Layouts', 'A/B Testing'],
 };
 
-const _sections = ['Home', 'About', 'Experience', 'Projects', 'Apps', 'Contact'];
-
-// ─────────────────────────────────────────────────────────────────────────────
-// HOME PAGE
-// ─────────────────────────────────────────────────────────────────────────────
+const _sections = [
+  'Home',
+  'About',
+  'Experience',
+  'Projects',
+  'Apps',
+  'Contact',
+];
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -378,7 +381,6 @@ class _HomePageState extends State<HomePage> {
     super.dispose();
   }
 
-  // Only touches a ValueNotifier -> rebuilds just the nav bar, never the page.
   void _onScroll() {
     if (!_scroll.hasClients) return;
     final pos = _scroll.position;
@@ -487,8 +489,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  // ─── NAV ──────────────────────────────────────────────────────────────────
-
   PreferredSizeWidget _nav(BuildContext context, Pal p) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     return PreferredSize(
@@ -540,8 +540,8 @@ class _HomePageState extends State<HomePage> {
             ),
             IconButton(
               tooltip: isDark ? 'Light mode' : 'Dark mode',
-              onPressed: () => themeMode.value =
-              isDark ? ThemeMode.light : ThemeMode.dark,
+              onPressed: () =>
+                  themeMode.value = isDark ? ThemeMode.light : ThemeMode.dark,
               icon: Icon(
                 isDark ? Icons.light_mode_rounded : Icons.dark_mode_rounded,
                 color: p.text2,
@@ -553,8 +553,6 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-
-  // ─── HERO ─────────────────────────────────────────────────────────────────
 
   Widget _hero(BuildContext context, Pal p) {
     final wide = MediaQuery.sizeOf(context).width > 768;
@@ -578,14 +576,16 @@ class _HomePageState extends State<HomePage> {
           colors: [p.accent.withValues(alpha: 0.14), Colors.transparent],
         ),
       ),
-      // One animation for the whole hero (instead of six controllers).
       child: TweenAnimationBuilder<double>(
         tween: Tween(begin: 0, end: 1),
         duration: const Duration(milliseconds: 700),
         curve: Curves.easeOutCubic,
         builder: (_, v, child) => Opacity(
           opacity: v,
-          child: Transform.translate(offset: Offset(0, (1 - v) * 18), child: child),
+          child: Transform.translate(
+            offset: Offset(0, (1 - v) * 18),
+            child: child,
+          ),
         ),
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 860),
@@ -623,8 +623,8 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(height: 22),
               Text(
                 'I build fast, scalable cross-platform apps with Flutter, '
-                    'Firebase and clean architecture — including two live apps '
-                    'serving 2M+ customers.',
+                'Firebase and clean architecture — including two live apps '
+                'serving 2M+ customers.',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 17, height: 1.7, color: p.text2),
               ),
@@ -677,8 +677,10 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         const SizedBox(height: 4),
-                        Text(s.$2,
-                            style: TextStyle(fontSize: 12, color: p.muted)),
+                        Text(
+                          s.$2,
+                          style: TextStyle(fontSize: 12, color: p.muted),
+                        ),
                       ],
                     ),
                 ],
@@ -689,8 +691,6 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-
-  // ─── ABOUT ────────────────────────────────────────────────────────────────
 
   Widget _about(Pal p) {
     final left = Column(
@@ -703,23 +703,27 @@ class _HomePageState extends State<HomePage> {
             children: [
               Text(
                 'Self-motivated Flutter developer with a track record of shipping '
-                    'scalable, high-performance mobile apps to the App Store and Google Play.',
+                'scalable, high-performance mobile apps to the App Store and Google Play.',
                 style: TextStyle(fontSize: 15, height: 1.8, color: p.text2),
               ),
               const SizedBox(height: 14),
               Text(
                 'Specialised in cross-platform development: state management, '
-                    'Firebase integration and intuitive UX, with a focus on clean, '
-                    'maintainable code.',
+                'Firebase integration and intuitive UX, with a focus on clean, '
+                'maintainable code.',
                 style: TextStyle(fontSize: 15, height: 1.8, color: p.text2),
               ),
               const SizedBox(height: 18),
-              Row(children: [
-                Icon(Icons.location_on_rounded, size: 16, color: p.accent),
-                const SizedBox(width: 8),
-                Text('Faisalabad, Pakistan',
-                    style: TextStyle(fontSize: 14, color: p.text2)),
-              ]),
+              Row(
+                children: [
+                  Icon(Icons.location_on_rounded, size: 16, color: p.accent),
+                  const SizedBox(width: 8),
+                  Text(
+                    'Faisalabad, Pakistan',
+                    style: TextStyle(fontSize: 14, color: p.text2),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
@@ -761,9 +765,14 @@ class _HomePageState extends State<HomePage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Technical Skills',
-              style: TextStyle(
-                  fontSize: 18, fontWeight: FontWeight.w700, color: p.text)),
+          Text(
+            'Technical Skills',
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w700,
+              color: p.text,
+            ),
+          ),
           const SizedBox(height: 18),
           for (final e in _skills.entries)
             Padding(
@@ -812,8 +821,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  // ─── CONTACT / FOOTER ─────────────────────────────────────────────────────
-
   Widget _contact(Pal p) {
     return ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: 640),
@@ -821,7 +828,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           Text(
             'I\'m available for full-time roles and freelance work. '
-                'The fastest way to reach me is email.',
+            'The fastest way to reach me is email.',
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 16, height: 1.7, color: p.text2),
           ),
@@ -837,7 +844,11 @@ class _HomePageState extends State<HomePage> {
                 filled: true,
                 onTap: () => openUrl('mailto:${Profile.email}'),
               ),
-              _Btn(label: 'Download CV', icon: Icons.download_rounded, onTap: openCv),
+              _Btn(
+                label: 'Download CV',
+                icon: Icons.download_rounded,
+                onTap: openCv,
+              ),
               _Btn(
                 label: 'LinkedIn',
                 icon: Icons.work_rounded,
@@ -859,7 +870,9 @@ class _HomePageState extends State<HomePage> {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 26, horizontal: 24),
-      decoration: BoxDecoration(border: Border(top: BorderSide(color: p.border))),
+      decoration: BoxDecoration(
+        border: Border(top: BorderSide(color: p.border)),
+      ),
       child: Text(
         '© 2026 ${Profile.name} · Built with Flutter 💙',
         textAlign: TextAlign.center,
@@ -869,12 +882,12 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// LAYOUT HELPERS
-// ─────────────────────────────────────────────────────────────────────────────
-
-/// Equal-height grid without fixed heights (no overflow when text grows).
-Widget _grid(BoxConstraints c, List<Widget> items, {int cols = 2, double gap = 20}) {
+Widget _grid(
+  BoxConstraints c,
+  List<Widget> items, {
+  int cols = 2,
+  double gap = 20,
+}) {
   if (c.maxWidth < 760) cols = 1;
   final rows = <Widget>[];
   for (var i = 0; i < items.length; i += cols) {
@@ -898,10 +911,6 @@ Widget _grid(BoxConstraints c, List<Widget> items, {int cols = 2, double gap = 2
   }
   return Column(children: rows);
 }
-
-// ─────────────────────────────────────────────────────────────────────────────
-// REUSABLE WIDGETS
-// ─────────────────────────────────────────────────────────────────────────────
 
 class _Section extends StatelessWidget {
   final String title, eyebrow;
@@ -930,8 +939,10 @@ class _Section extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  padding:
-                  const EdgeInsets.symmetric(horizontal: 14, vertical: 5),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 14,
+                    vertical: 5,
+                  ),
                   decoration: BoxDecoration(
                     color: p.accent.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(20),
@@ -995,10 +1006,14 @@ class _NavItem extends StatelessWidget {
           margin: const EdgeInsets.symmetric(horizontal: 3),
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
           decoration: BoxDecoration(
-            color: active ? p.accent.withValues(alpha: 0.14) : Colors.transparent,
+            color: active
+                ? p.accent.withValues(alpha: 0.14)
+                : Colors.transparent,
             borderRadius: BorderRadius.circular(20),
             border: Border.all(
-              color: active ? p.accent.withValues(alpha: 0.4) : Colors.transparent,
+              color: active
+                  ? p.accent.withValues(alpha: 0.4)
+                  : Colors.transparent,
             ),
           ),
           child: Text(
@@ -1015,13 +1030,16 @@ class _NavItem extends StatelessWidget {
   }
 }
 
-/// One hover card used everywhere (replaces six near-identical widgets).
 class _HoverCard extends StatefulWidget {
   final Widget child;
   final Color accent;
   final double padding;
 
-  const _HoverCard({required this.child, required this.accent, this.padding = 24});
+  const _HoverCard({
+    required this.child,
+    required this.accent,
+    this.padding = 24,
+  });
 
   @override
   State<_HoverCard> createState() => _HoverCardState();
@@ -1048,12 +1066,12 @@ class _HoverCardState extends State<_HoverCard> {
           ),
           boxShadow: _hover
               ? [
-            BoxShadow(
-              color: widget.accent.withValues(alpha: 0.12),
-              blurRadius: 18,
-              offset: const Offset(0, 4),
-            ),
-          ]
+                  BoxShadow(
+                    color: widget.accent.withValues(alpha: 0.12),
+                    blurRadius: 18,
+                    offset: const Offset(0, 4),
+                  ),
+                ]
               : null,
         ),
         child: widget.child,
@@ -1093,13 +1111,23 @@ class _IconLine extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(title,
-                  style: TextStyle(
-                      fontSize: 15, fontWeight: FontWeight.w700, color: p.text)),
+              Text(
+                title,
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w700,
+                  color: p.text,
+                ),
+              ),
               const SizedBox(height: 3),
-              Text(subtitle,
-                  style: TextStyle(
-                      fontSize: 13, fontWeight: FontWeight.w500, color: color)),
+              Text(
+                subtitle,
+                style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w500,
+                  color: color,
+                ),
+              ),
             ],
           ),
         ),
@@ -1125,7 +1153,11 @@ class _Chip extends StatelessWidget {
       ),
       child: Text(
         label,
-        style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: color),
+        style: TextStyle(
+          fontSize: 12,
+          fontWeight: FontWeight.w500,
+          color: color,
+        ),
       ),
     );
   }
@@ -1141,7 +1173,9 @@ class _StatusBadge extends StatelessWidget {
       decoration: BoxDecoration(
         color: const Color(0xFF059669).withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(24),
-        border: Border.all(color: const Color(0xFF059669).withValues(alpha: 0.3)),
+        border: Border.all(
+          color: const Color(0xFF059669).withValues(alpha: 0.3),
+        ),
       ),
       child: const Row(
         mainAxisSize: MainAxisSize.min,
@@ -1206,16 +1240,18 @@ class _BtnState extends State<_Btn> {
                 : null,
             color: filled
                 ? widget.color
-                : (_hover ? p.accent.withValues(alpha: 0.08) : Colors.transparent),
+                : (_hover
+                      ? p.accent.withValues(alpha: 0.08)
+                      : Colors.transparent),
             border: filled ? null : Border.all(color: p.border),
             boxShadow: filled && _hover
                 ? [
-              BoxShadow(
-                color: (widget.color ?? p.accent).withValues(alpha: 0.4),
-                blurRadius: 16,
-                offset: const Offset(0, 4),
-              ),
-            ]
+                    BoxShadow(
+                      color: (widget.color ?? p.accent).withValues(alpha: 0.4),
+                      blurRadius: 16,
+                      offset: const Offset(0, 4),
+                    ),
+                  ]
                 : null,
           ),
           child: Row(
@@ -1242,10 +1278,6 @@ class _BtnState extends State<_Btn> {
   }
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// CARDS
-// ─────────────────────────────────────────────────────────────────────────────
-
 class _JobCard extends StatelessWidget {
   final Job job;
 
@@ -1265,7 +1297,10 @@ class _JobCard extends StatelessWidget {
             Text(
               job.role,
               style: TextStyle(
-                  fontSize: 20, fontWeight: FontWeight.w700, color: p.text),
+                fontSize: 20,
+                fontWeight: FontWeight.w700,
+                color: p.text,
+              ),
             ),
             const SizedBox(height: 10),
             Wrap(
@@ -1288,14 +1323,21 @@ class _JobCard extends StatelessWidget {
                       margin: const EdgeInsets.only(top: 7),
                       width: 6,
                       height: 6,
-                      decoration:
-                      BoxDecoration(color: job.color, shape: BoxShape.circle),
+                      decoration: BoxDecoration(
+                        color: job.color,
+                        shape: BoxShape.circle,
+                      ),
                     ),
                     const SizedBox(width: 12),
                     Expanded(
-                      child: Text(a,
-                          style: TextStyle(
-                              fontSize: 14, height: 1.5, color: p.text2)),
+                      child: Text(
+                        a,
+                        style: TextStyle(
+                          fontSize: 14,
+                          height: 1.5,
+                          color: p.text2,
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -1323,17 +1365,26 @@ class _ProjectCard extends StatelessWidget {
         children: [
           _Chip(label: d.category, color: d.color),
           const SizedBox(height: 12),
-          Text(d.title,
-              style: TextStyle(
-                  fontSize: 20, fontWeight: FontWeight.w700, color: p.text)),
+          Text(
+            d.title,
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w700,
+              color: p.text,
+            ),
+          ),
           const SizedBox(height: 10),
-          Text(d.description,
-              style: TextStyle(fontSize: 14, height: 1.6, color: p.text2)),
+          Text(
+            d.description,
+            style: TextStyle(fontSize: 14, height: 1.6, color: p.text2),
+          ),
           const SizedBox(height: 14),
           Wrap(
             spacing: 6,
             runSpacing: 6,
-            children: [for (final t in d.tech) _Chip(label: t, color: p.accent)],
+            children: [
+              for (final t in d.tech) _Chip(label: t, color: p.accent),
+            ],
           ),
           const SizedBox(height: 14),
           for (final h in d.highlights)
@@ -1344,13 +1395,17 @@ class _ProjectCard extends StatelessWidget {
                   Container(
                     width: 5,
                     height: 5,
-                    decoration:
-                    BoxDecoration(color: d.color, shape: BoxShape.circle),
+                    decoration: BoxDecoration(
+                      color: d.color,
+                      shape: BoxShape.circle,
+                    ),
                   ),
                   const SizedBox(width: 10),
                   Expanded(
-                    child: Text(h,
-                        style: TextStyle(fontSize: 13, color: p.muted)),
+                    child: Text(
+                      h,
+                      style: TextStyle(fontSize: 13, color: p.muted),
+                    ),
                   ),
                 ],
               ),
@@ -1385,8 +1440,10 @@ class _ProjectCard extends StatelessWidget {
                 Icon(Icons.lock_outline_rounded, size: 15, color: p.muted),
                 const SizedBox(width: 6),
                 Flexible(
-                  child: Text(d.note!,
-                      style: TextStyle(fontSize: 13, color: p.muted)),
+                  child: Text(
+                    d.note!,
+                    style: TextStyle(fontSize: 13, color: p.muted),
+                  ),
                 ),
               ],
             ),
@@ -1421,12 +1478,19 @@ class _StoreAppCard extends StatelessWidget {
             child: Icon(app.icon, color: app.color, size: 26),
           ),
           const SizedBox(height: 16),
-          Text(app.title,
-              style: TextStyle(
-                  fontSize: 20, fontWeight: FontWeight.w700, color: p.text)),
+          Text(
+            app.title,
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w700,
+              color: p.text,
+            ),
+          ),
           const SizedBox(height: 10),
-          Text(app.description,
-              style: TextStyle(fontSize: 14, height: 1.6, color: p.text2)),
+          Text(
+            app.description,
+            style: TextStyle(fontSize: 14, height: 1.6, color: p.text2),
+          ),
           const SizedBox(height: 22),
           Wrap(
             spacing: 10,
