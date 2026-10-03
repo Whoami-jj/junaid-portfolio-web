@@ -253,8 +253,8 @@ const _projects = <Project>[
     tech: ['Flutter', 'Gemini API', 'Tool Calling'],
     highlights: ['LLM tool / function calling', 'Weather and calculator tools'],
     color: Color(0xFFDB2777),
-    // url: 'https://github.com/Whoami-jj/<repo>',  // add when public
-    // linkLabel: 'View on GitHub',
+    url: 'https://github.com/Whoami-jj/pocket-ai',
+    linkLabel: 'View on GitHub',
   ),
   Project(
     title: 'Pocket Tools',
@@ -281,14 +281,33 @@ const _projects = <Project>[
     linkLabel: 'View on GitHub',
   ),
   Project(
-    title: 'This Portfolio',
-    category: 'Portfolio',
+    title: 'Portfolio App',
+    category: 'Mobile App',
     description:
-        'Responsive Flutter web + Android portfolio with light/dark themes, released as an APK through an automated pipeline.',
-    tech: ['Flutter', 'GitHub Actions'],
-    highlights: ['Light and dark themes', 'Tag-triggered APK releases'],
+    'Cross-platform portfolio app with light and dark themes, Riverpod state management and go_router navigation, released as an APK through an automated pipeline.',
+    tech: ['Flutter', 'Riverpod', 'go_router', 'GitHub Actions'],
+    highlights: [
+      'Material 3 design with theme toggle',
+      'Tag-triggered APK releases',
+      'Open source on GitHub',
+    ],
     color: Color(0xFF0B6E6B),
-    url: 'https://github.com/Whoami-jj/junaid-portfolio',
+    url: 'https://github.com/Whoami-jj/portfolio-app',
+    linkLabel: 'View on GitHub',
+  ),
+  Project(
+    title: 'Portfolio Website',
+    category: 'Web',
+    description:
+    'Responsive Flutter web showcase of my work, with light and dark themes, deployed automatically to Netlify.',
+    tech: ['Flutter Web', 'GitHub Actions', 'Netlify'],
+    highlights: [
+      'Auto-deploys on every push to main',
+      'Light and dark themes',
+      'Responsive for phone and desktop',
+    ],
+    color: Color(0xFF6366F1),
+    url: 'https://github.com/Whoami-jj/junaid-portfolio-web',
     linkLabel: 'View on GitHub',
   ),
 ];
@@ -734,7 +753,7 @@ class _HomePageState extends State<HomePage> {
             icon: Icons.school_rounded,
             color: const Color(0xFF7C3AED),
             title: 'BS Software Engineering',
-            subtitle: 'Riphah International University · In progress',
+            subtitle: 'Riphah International University · 2020 - 2024',
           ),
         ),
         const SizedBox(height: 16),
