@@ -450,59 +450,64 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final p = Pal.of(context);
-    return Scaffold(
-      backgroundColor: p.bg,
-      appBar: _nav(context, p),
-      body: SingleChildScrollView(
-        controller: _scroll,
-        child: Column(
-          children: [
-            _hero(context, p),
-            _Section(
-              key: _keys['About'],
-              eyebrow: 'Background & skills',
-              title: 'About Me',
-              tinted: true,
-              child: _about(p),
+    return Container(
+      color: p.bg,
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: p.bg,
+          appBar: _nav(context, p),
+          body: SingleChildScrollView(
+            controller: _scroll,
+            child: Column(
+              children: [
+                _hero(context, p),
+                _Section(
+                  key: _keys['About'],
+                  eyebrow: 'Background & skills',
+                  title: 'About Me',
+                  tinted: true,
+                  child: _about(p),
+                ),
+                _Section(
+                  key: _keys['Experience'],
+                  eyebrow: 'Professional journey',
+                  title: 'Work Experience',
+                  child: Column(
+                    children: [for (final j in _jobs) _JobCard(job: j)],
+                  ),
+                ),
+                _Section(
+                  key: _keys['Projects'],
+                  eyebrow: 'What I\'ve built',
+                  title: 'Featured Projects',
+                  tinted: true,
+                  child: LayoutBuilder(
+                    builder: (_, c) => _grid(c, [
+                      for (final pr in _projects) _ProjectCard(project: pr),
+                    ]),
+                  ),
+                ),
+                _Section(
+                  key: _keys['Apps'],
+                  eyebrow: 'Live on App Store & Google Play',
+                  title: 'Published Apps',
+                  child: LayoutBuilder(
+                    builder: (_, c) => _grid(c, [
+                      for (final a in _storeApps) _StoreAppCard(app: a),
+                    ]),
+                  ),
+                ),
+                _Section(
+                  key: _keys['Contact'],
+                  eyebrow: 'Open to opportunities',
+                  title: 'Let\'s Work Together',
+                  tinted: true,
+                  child: _contact(p),
+                ),
+                _footer(p),
+              ],
             ),
-            _Section(
-              key: _keys['Experience'],
-              eyebrow: 'Professional journey',
-              title: 'Work Experience',
-              child: Column(
-                children: [for (final j in _jobs) _JobCard(job: j)],
-              ),
-            ),
-            _Section(
-              key: _keys['Projects'],
-              eyebrow: 'What I\'ve built',
-              title: 'Featured Projects',
-              tinted: true,
-              child: LayoutBuilder(
-                builder: (_, c) => _grid(c, [
-                  for (final pr in _projects) _ProjectCard(project: pr),
-                ]),
-              ),
-            ),
-            _Section(
-              key: _keys['Apps'],
-              eyebrow: 'Live on App Store & Google Play',
-              title: 'Published Apps',
-              child: LayoutBuilder(
-                builder: (_, c) => _grid(c, [
-                  for (final a in _storeApps) _StoreAppCard(app: a),
-                ]),
-              ),
-            ),
-            _Section(
-              key: _keys['Contact'],
-              eyebrow: 'Open to opportunities',
-              title: 'Let\'s Work Together',
-              tinted: true,
-              child: _contact(p),
-            ),
-            _footer(p),
-          ],
+          ),
         ),
       ),
     );
