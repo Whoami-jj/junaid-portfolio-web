@@ -242,7 +242,7 @@ const _projects = <Project>[
       'Dietitian consultation',
     ],
     color: Color(0xFF059669),
-    url: 'https://github.com/Whoami-jj/meal-match',
+    url: 'https://github.com/Whoami-jj/MealMatch',
     linkLabel: 'View on GitHub',
   ),
   Project(
