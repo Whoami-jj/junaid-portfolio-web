@@ -257,7 +257,7 @@ const _projects = <Project>[
       'Saved decks work offline',
     ],
     color: Color(0xFF65A30D),
-    url: 'https://github.com/Whoami-jj/ai-study-buddy',
+    url: 'https://github.com/Whoami-jj/ai_study_buddy',
     linkLabel: 'View on GitHub',
   ),
   Project(
