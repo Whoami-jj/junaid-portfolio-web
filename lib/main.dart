@@ -246,6 +246,21 @@ const _projects = <Project>[
     linkLabel: 'View on GitHub',
   ),
   Project(
+    title: 'AI Study Buddy',
+    category: 'Education',
+    description:
+    'AI study app that turns notes, PDFs and photos into flashcards and quizzes, then schedules reviews with spaced repetition.',
+    tech: ['Flutter', 'Riverpod', 'Hive', 'Gemini API', 'ML Kit OCR'],
+    highlights: [
+      'Flashcards and quizzes from text, PDF or photo',
+      'SM-2 spaced repetition, daily goal and streaks',
+      'Saved decks work offline',
+    ],
+    color: Color(0xFF65A30D),
+    url: 'https://github.com/Whoami-jj/ai-study-buddy',
+    linkLabel: 'View on GitHub',
+  ),
+  Project(
     title: 'PocketAI',
     category: 'AI Agent',
     description:
@@ -584,7 +599,7 @@ class _HomePageState extends State<HomePage> {
       ('3+', 'Years Experience'),
       ('2', 'Apps on the Stores'),
       ('2M+', 'Customers Served'),
-      ('8', 'Projects'),
+      ('10', 'Projects'),
     ];
 
     return Container(
